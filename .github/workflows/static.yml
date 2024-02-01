@@ -31,14 +31,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: cd dir
-        run: cd taskbox/
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: build
         run: |
+          cd taskbox/
           npm ci
           npm run build
           npm run build-storybook
